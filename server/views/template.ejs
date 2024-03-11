@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= template && template.name %></title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input,
+        button,
+        [type="checkbox"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        [type="checkbox"] {
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><%= template.name %></h1>
+
+    <% widgets.forEach((widget) => { %>
+        <% if (widget.type === 'input') { %>
+            <label><%= widget.label %></label>
+            <input
+                id="<%= widget.id %>"
+                type="text"
+                value="<%= widget.value %>"
+                placeholder="<%= widget.placeholder %>"
+            /><br/>
+        <% } else if (widget.type === 'button') { %>
+            <button id="<%= widget.id %>"><%= widget.value %></button><br/>
+        <% } else if (widget.type === 'number') { %>
+            <label><%= widget.label %></label>
+            <input
+                id="<%= widget.id %>"
+                type="number"
+                value="<%= widget.value %>"
+                max="<%= widget.max %>"
+                min="<%= widget.min %>"
+            /><br/>
+        <% } else if (widget.type === 'checkbox') { %>
+            <label><%= widget.label %></label>
+            <input
+                id="<%= widget.id %>"
+                type="checkbox"
+                <% if (widget.checked === 'true') { %> checked <% } %>
+            /><br/>
+        <% } else if (widget.type === 'title') { %>
+            <h1><%= widget.textContent %></h1><br/>
+        <% } %>
+    <% }); %>
+</body>
+
+</html>

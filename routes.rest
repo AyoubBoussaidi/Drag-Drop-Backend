@@ -1,0 +1,56 @@
+GET http://localhost:3000/user/65d5f76d10f692b17823967a
+
+
+###
+
+POST  http://localhost:3000/user/addUser
+Content-Type: application/json
+
+{
+    "firstname": "Imad",
+    "lastname": "Boussaidi",
+    "email": "imad@gmail.com",
+    "password": "password",
+    "age": 22
+}
+
+###
+
+GET http://localhost:3000/get-users
+Authorization: x-access-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ3NDJjYTNhYzFjYjYyMmQxN2RmZmEiLCJlbWFpbCI6ImF5b3ViQGdtYWlsLmNvbSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImFnZSI6MjIsImlhdCI6MTcwODYwODA3NiwiZXhwIjoxNzA4Njk0NDc2fQ.7AWHuzVamrAD26rbUkrWMyshmx_8rz_y2hgN3zLbQTw
+
+
+
+###
+
+DELETE http://localhost:3000/user/65d5f77f33bc12439442d9c9
+
+
+###
+
+POST  http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "firstname": "Ayoub",
+    "lastname": "Boussaidi",
+    "email": "ayoub@gmail.com",
+    "password": "password",
+    "age": 22,
+    "role": "utilisateur"
+}
+
+###
+
+POST  http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "ayoub@gmail.com",
+    "password": "password"
+}
+
+
+
+###
+
